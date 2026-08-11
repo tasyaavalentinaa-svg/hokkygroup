@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pilih Lokasi — Hokky Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <span>HOKKY GROUP</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="hokky.html">Martabak Hokky</a>
+      <a href="bryan.html">Martabak Bryan</a>
+      <a href="outlet.html">Outlet</a>
+      <a href="lokasi-pesan.html" class="active">Pilih Lokasi</a>
+      <a href="order.html">Order Direct</a>
+      <a href="partai-besar.html">Partai Besar</a>
+      <a href="pesan-online.html">Pesan Online</a>
+    </div>
+    <a class="nav-cta" href="order.html">Order Sekarang</a>
+  </div>
+</nav>
+
+<div class="location-wrap">
+  <h1 id="locTitle">Pilih Lokasi</h1>
+
+  <div class="location-grid">
+    <div class="map-box">
+      <iframe id="mapFrame" src="https://www.google.com/maps?q=Cilegon,%20Banten&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+
+    <div class="loc-panel">
+      <div class="loc-tabs">
+        <button class="loc-tab active" data-tab="address">Cari Alamat</button>
+        <button class="loc-tab" data-tab="outlet">Pilih Outlet</button>
+      </div>
+
+      <div class="loc-panel-body" id="tab-address">
+        <div class="avail-alert" id="availAlert"></div>
+        <label class="loc-label">Cari Lokasi</label>
+        <input type="text" id="searchInput" placeholder="Enter search location">
+        <label class="loc-label">Address</label>
+        <textarea id="addressInput" rows="3" placeholder="Alamat lengkap pengantaran"></textarea>
+        <label class="loc-label">Catatan Alamat (opsional)</label>
+        <textarea id="captionInput" rows="2" placeholder="Contoh: Unit 1, Lantai 2, patokan dekat masjid"></textarea>
+        <button class="loc-continue" id="continueAddress">Lanjutkan</button>
+      </div>
+
+      <div class="loc-panel-body" id="tab-outlet" style="display:none;">
+        <div class="outlet-pick-list" id="outletPickList"></div>
+        <button class="loc-continue" id="continueOutlet" disabled>Lanjutkan</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span>HOKKY GROUP</span>
+      </div>
+      <p class="footer-about">Martabak Hokky &amp; Martabak Bryan adalah bagian dari HOKKY GROUP Management. [Ganti dengan nama badan usaha/PT jika ada.]</p>
+      <div class="footer-about-cta">
+        <a class="footer-ig-btn" href="https://www.instagram.com/hokkymartabak.id" target="_blank" rel="noopener">📷 Martabak Hokky</a>
+        <a class="footer-ig-btn" href="https://www.instagram.com/bryanmartabak.id" target="_blank" rel="noopener">📷 Martabak Bryan</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <a href="index.html">Beranda</a>
+      <a href="hokky.html">Martabak Hokky</a>
+      <a href="bryan.html">Martabak Bryan</a>
+      <a href="outlet.html">Outlet</a>
+      <a href="lokasi-pesan.html">Pilih Lokasi</a>
+      <a href="order.html">Order Direct</a>
+      <a href="partai-besar.html">Partai Besar</a>
+      <a href="pesan-online.html">Pesan Online</a>
+    </div>
+    <div class="footer-col">
+      <h4>Brand</h4>
+      <a href="https://www.instagram.com/hokkymartabak.id" target="_blank" rel="noopener">IG @hokkymartabak.id</a>
+      <a href="https://www.instagram.com/bryanmartabak.id" target="_blank" rel="noopener">IG @bryanmartabak.id</a>
+      <a href="#" target="_blank" rel="noopener">TikTok @hokkygroup.official</a>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="social-row">
+        <a class="social-badge" href="https://www.instagram.com/hokkymartabak.id" target="_blank" rel="noopener" title="Instagram Hokky">IG</a>
+        <a class="social-badge" href="https://www.instagram.com/bryanmartabak.id" target="_blank" rel="noopener" title="Instagram Bryan">IG</a>
+        <a class="social-badge" href="#" target="_blank" rel="noopener" title="TikTok">TT</a>
+        <a class="social-badge" href="#" target="_blank" rel="noopener" title="WhatsApp">WA</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 HOKKY GROUP. All Rights Reserved.</div>
+</footer>
+
+<script src="assets/script.js"></script>
+</body>
+</html>
