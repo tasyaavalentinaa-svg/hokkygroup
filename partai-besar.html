@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Partai Besar — Hokky Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Lora:ital,wght@0,400;0,500;0,600&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <a class="nav-brand" href="index.html">
+    <span>HOKKY GROUP</span>
+  </a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="hokky.html">Martabak Hokky</a>
+      <a href="bryan.html">Martabak Bryan</a>
+      <a href="outlet.html">Outlet</a>
+      <a href="lokasi-pesan.html">Pilih Lokasi</a>
+      <a href="order.html">Order Direct</a>
+      <a href="partai-besar.html" class="active">Partai Besar</a>
+      <a href="pesan-online.html">Pesan Online</a>
+    </div>
+    <a class="nav-cta" href="order.html">Order Sekarang</a>
+  </div>
+</nav>
+
+<div class="wizard-wrap">
+  <h1>🎉 Partai Besar</h1>
+
+  <div class="stepper">
+    <div class="step active" data-step="1"><div class="dot"></div><div class="label">Detail Acara</div></div>
+    <div class="step" data-step="2"><div class="dot"></div><div class="label">Pilih Menu</div></div>
+    <div class="step" data-step="3"><div class="dot"></div><div class="label">Keranjang</div></div>
+    <div class="step" data-step="4"><div class="dot"></div><div class="label">Ringkasan</div></div>
+  </div>
+
+  <!-- ===== STEP 1: Detail Acara ===== -->
+  <div class="wizard-panel active" id="panel-1">
+    <h2>Detail Acara</h2>
+
+    <div class="wiz-field">
+      <label for="eventName">Nama Acara</label>
+      <input type="text" id="eventName" placeholder="Contoh: Gathering Tahunan PT Maju Jaya">
+    </div>
+
+    <div class="wiz-row">
+      <div class="wiz-field">
+        <label for="eventDate">Tanggal</label>
+        <input type="date" id="eventDate">
+      </div>
+      <div class="wiz-field">
+        <label for="eventTime">Waktu</label>
+        <input type="time" id="eventTime">
+      </div>
+    </div>
+
+    <div class="wiz-field">
+      <label for="eventPlace">Lokasi Acara</label>
+      <textarea id="eventPlace" rows="2" placeholder="Alamat lengkap tempat acara"></textarea>
+    </div>
+
+    <div class="wiz-field">
+      <label for="eventBrand">Pilih Brand</label>
+      <select id="eventBrand">
+        <option value="Martabak Hokky">👑 Martabak Hokky (Premium)</option>
+        <option value="Martabak Bryan">🥊 Martabak Bryan (Jagoan Street Food)</option>
+      </select>
+    </div>
+
+    <div class="contact-block">
+      <h3>Contact Person 1</h3>
+      <div class="wiz-field"><label for="c1name">Nama</label><input type="text" id="c1name" placeholder="Nama lengkap"></div>
+      <div class="wiz-row">
+        <div class="wiz-field"><label for="c1phone">No. WhatsApp</label><input type="tel" id="c1phone" placeholder="08xxxxxxxxxx"></div>
+        <div class="wiz-field"><label for="c1email">Email (opsional)</label><input type="email" id="c1email" placeholder="nama@email.com"></div>
+      </div>
+    </div>
+
+    <div id="contact2Wrap" style="display:none;">
+      <div class="contact-block">
+        <h3>Contact Person 2</h3>
+        <div class="wiz-field"><label for="c2name">Nama</label><input type="text" id="c2name" placeholder="Nama lengkap"></div>
+        <div class="wiz-row">
+          <div class="wiz-field"><label for="c2phone">No. WhatsApp</label><input type="tel" id="c2phone" placeholder="08xxxxxxxxxx"></div>
+          <div class="wiz-field"><label for="c2email">Email (opsional)</label><input type="email" id="c2email" placeholder="nama@email.com"></div>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="add-contact-btn" id="addContact2">+ Tambah Contact Person 2</button>
+
+    <div class="wiz-nav">
+      <span></span>
+      <button type="button" class="wiz-btn next" data-goto="2">Next</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 2: Pilih Menu ===== -->
+  <div class="wizard-panel" id="panel-2">
+    <h2>Pilih Menu</h2>
+    <div id="menuPickList"></div>
+
+    <div class="wiz-nav">
+      <button type="button" class="wiz-btn back" data-goto="1">Back</button>
+      <button type="button" class="wiz-btn next" data-goto="3">Next</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 3: Keranjang ===== -->
+  <div class="wizard-panel" id="panel-3">
+    <h2>My Basket</h2>
+    <div class="basket-list" id="basketList"></div>
+
+    <div class="wiz-nav">
+      <button type="button" class="wiz-btn back" data-goto="2">Back</button>
+      <button type="button" class="wiz-btn next" data-goto="4">Next</button>
+    </div>
+  </div>
+
+  <!-- ===== STEP 4: Ringkasan ===== -->
+  <div class="wizard-panel" id="panel-4">
+    <h2>Summary</h2>
+    <div class="summary-block" id="summaryEvent"></div>
+    <div class="summary-block" id="summaryContact"></div>
+    <div class="summary-block" id="summaryBasket"></div>
+    <span class="draft-note" style="display:block; margin-bottom:10px;">* Tombol di bawah akan membuka WhatsApp berisi rincian pesanan ke admin — ganti nomor WA admin di script.js sebelum publish.</span>
+
+    <div class="wiz-nav">
+      <button type="button" class="wiz-btn back" data-goto="3">Back</button>
+      <button type="button" class="wiz-btn submit" id="submitWizard">Kirim via WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">
+        <span>HOKKY GROUP</span>
+      </div>
+      <p class="footer-about">Martabak Hokky &amp; Martabak Bryan adalah bagian dari HOKKY GROUP Management. [Ganti dengan nama badan usaha/PT jika ada.]</p>
+      <div class="footer-about-cta">
+        <a class="footer-ig-btn" href="https://www.instagram.com/hokkymartabak.id" target="_blank" rel="noopener">📷 Martabak Hokky</a>
+        <a class="footer-ig-btn" href="https://www.instagram.com/bryanmartabak.id" target="_blank" rel="noopener">📷 Martabak Bryan</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Links</h4>
+      <a href="index.html">Beranda</a>
+      <a href="hokky.html">Martabak Hokky</a>
+      <a href="bryan.html">Martabak Bryan</a>
+      <a href="outlet.html">Outlet</a>
+      <a href="lokasi-pesan.html">Pilih Lokasi</a>
+      <a href="order.html">Order Direct</a>
+      <a href="partai-besar.html">Partai Besar</a>
+      <a href="pesan-online.html">Pesan Online</a>
+    </div>
+    <div class="footer-col">
+      <h4>Brand</h4>
+      <a href="https://www.instagram.com/hokkymartabak.id" target="_blank" rel="noopener">IG @hokkymartabak.id</a>
+      <a href="https://www.instagram.com/bryanmartabak.id" target="_blank" rel="noopener">IG @bryanmartabak.id</a>
+      <a href="#" target="_blank" rel="noopener">TikTok @hokkygroup.official</a>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <div class="social-row">
+        <a class="social-badge" href="https://www.instagram.com/hokkymartabak.id" target="_blank" rel="noopener" title="Instagram Hokky">IG</a>
+        <a class="social-badge" href="https://www.instagram.com/bryanmartabak.id" target="_blank" rel="noopener" title="Instagram Bryan">IG</a>
+        <a class="social-badge" href="#" target="_blank" rel="noopener" title="TikTok">TT</a>
+        <a class="social-badge" href="#" target="_blank" rel="noopener" title="WhatsApp">WA</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 HOKKY GROUP. All Rights Reserved.</div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
