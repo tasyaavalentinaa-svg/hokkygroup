@@ -232,6 +232,32 @@ section.brand{ padding:9vh 6vw; }
 .submit-btn:hover{ transform:translateY(-2px); }
 .form-note{ font-family:'Space Grotesk',sans-serif; font-size:11.5px; color:var(--muted); margin-top:10px; text-align:center; }
 
+/* ---------- membership modal ---------- */
+.membership-overlay{
+  position:fixed; inset:0; background:rgba(27,8,6,0.6); z-index:100;
+  display:flex; align-items:center; justify-content:center; padding:20px;
+  opacity:0; pointer-events:none; transition:opacity .25s ease;
+}
+.membership-overlay.show{ opacity:1; pointer-events:auto; }
+.membership-modal{
+  background:var(--cream); border-radius:22px; padding:40px 36px 32px; max-width:420px; width:100%;
+  position:relative; text-align:center; box-shadow:0 30px 60px rgba(0,0,0,.35);
+  transform:translateY(14px); transition:transform .25s ease;
+}
+.membership-overlay.show .membership-modal{ transform:translateY(0); }
+.membership-close{
+  position:absolute; top:14px; right:16px; background:none; border:none; font-size:22px; cursor:pointer; color:var(--muted);
+  line-height:1; padding:4px;
+}
+.membership-icon{ font-size:36px; margin-bottom:10px; }
+.membership-modal h2{ font-family:'Playfair Display',serif; font-weight:800; font-size:22px; color:var(--red-deep); margin:0 0 10px; }
+.membership-modal p.mm-desc{ font-family:'Space Grotesk',sans-serif; font-size:13px; color:var(--muted); margin:0 0 22px; line-height:1.6; }
+.membership-modal form{ text-align:left; }
+.membership-skip{
+  display:block; margin:14px auto 0; background:none; border:none; color:var(--muted); font-family:'Space Grotesk',sans-serif;
+  font-size:12.5px; text-decoration:underline; cursor:pointer;
+}
+
 /* ---------- footer ---------- */
 footer{ background:var(--ink); color:#E9E2D6; padding:8vh 6vw 4vh; font-family:'Space Grotesk',sans-serif; }
 .footer-grid{ display:grid; grid-template-columns:1.3fr 1fr 1fr 1fr; gap:40px; max-width:1100px; margin:0 auto 6vh; }

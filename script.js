@@ -7,6 +7,47 @@ function goOrder(type){
   }
 }
 
+// ---------- Modal membership (index.html) ----------
+const membershipOverlay = document.getElementById('membershipOverlay');
+if (membershipOverlay) {
+  const alreadyShown = sessionStorage.getItem('hokkyMembershipShown');
+  if (!alreadyShown) {
+    setTimeout(() => { membershipOverlay.classList.add('show'); }, 800);
+  }
+  function closeMembership(){
+    membershipOverlay.classList.remove('show');
+    sessionStorage.setItem('hokkyMembershipShown', '1');
+  }
+  document.getElementById('membershipClose').addEventListener('click', closeMembership);
+  document.getElementById('membershipSkip').addEventListener('click', closeMembership);
+  membershipOverlay.addEventListener('click', (e) => { if (e.target === membershipOverlay) closeMembership(); });
+
+  // GANTI dengan URL Web App Google Apps Script kamu setelah di-deploy (lihat instruksi setup)
+  const SHEET_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbyzbAKWu5ZsLMG6eg1uVrYZ2fWHv8E2hLIvMJgbPEO7MSPWOsasIkysrw6o4qqjFm5N/exec";
+
+  document.getElementById('membershipForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const nama = document.getElementById('mNama').value;
+    const telp = document.getElementById('mTelp').value;
+    const email = document.getElementById('mEmail').value;
+
+    // Simpan ke Google Sheet (lewat Apps Script Web App)
+    if (SHEET_WEBHOOK_URL && SHEET_WEBHOOK_URL.indexOf('GANTI_DENGAN') === -1) {
+      fetch(SHEET_WEBHOOK_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain' },
+        body: JSON.stringify({ nama, telp, email })
+      }).catch(() => {});
+    }
+
+    // Notifikasi ke admin lewat WhatsApp
+    const pesan = `Halo Hokky Group, saya mau daftar jadi member:%0A%0ANama: ${nama}%0ANo. Telepon: ${telp}%0AEmail: ${email}%0A%0ATerima kasih!`;
+    window.open(`https://wa.me/${ADMIN_WA_NUMBER}?text=${pesan}`, '_blank');
+    closeMembership();
+  });
+}
+
 // ---------- Filter outlet (outlet.html) ----------
 const tabBtns = document.querySelectorAll('.tab-btn');
 tabBtns.forEach(btn => {
